@@ -21,7 +21,9 @@ The resulting data can be found [here](https://docs.google.com/spreadsheets/d/1L
 
 ![](imported_data.png)
 
-Looking at the initial data, 
+Looking at the initial data, the only non-numerical data present are the neighbourhoods, which is a text-based categorical nominal variable. The SES Quintiles, though shown as numbers, represents various socio-ecenomic data and is ranked from 1-5 (University of Manitoba, 2011), thus making it it ordinal categorical data with a higher value representing greater socio-economic need. The average after-tax income, in contrast, represents a continuous (as a mean value can have an infinite number of digits, even though an individual's income can be broken down to the cent) numeric variable. 
+
+An initial hypothesis is that higher LIM-AT percentages will correlate to worse healthcare and housing outcomes, increased reported crimes due to policing, and higher proportions of racialized and immigrant/refugee populations.
 
 ## 2. Understanding Data
 
@@ -143,3 +145,5 @@ Insert text here.
 Ottawa Neighbourhood Study (n.d.). *Welcome to ONS-SQO - Ottawa Neighbourhood Study* https://ons-sqo.ca/
 
 City of Ottawa. (n.d.). *GeoOttawa* https://maps.ottawa.ca/geoottawa/
+
+University of Manitoba (January 2011). *Term: Socio-Economic Status* http://mchp-appserv.cpe.umanitoba.ca/viewDefinition.php?definitionID=103590

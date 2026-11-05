@@ -1,6 +1,6 @@
-**Date**<br>
-**Course Code & Course Name**<br>
-**Student's First Name & Last Name**<br>
+**Date**: Nov. 5, 2026<br>
+**Course Code & Course Name**: MPAD 2003 - Introductory Data Storytelling<br>
+**Student's First Name & Last Name**: Zahira Bakr<br>
 **Presented to Jean-Sébastien Marier**<br>
 
 # Deliverable 2: Exploratory Data Analysis (EDA)
@@ -41,6 +41,11 @@ To include a screen capture, use the sample code below. Your images should be sa
 =IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)
 ```
 This also shows how to create an ordered list. Simply put `1.` before each item.
+
+All data was sourced from the Ottawa Neighbourhood Study (ONS-SQO). To gather the data from their [website](https://ons-sqo.ca/maps/), the chart visualization for a given dataset was selected. HTML sources were downloaded from the page, and the data table manually selected. This is because the data takes the form of an interactive visualization with options between map and chart views, and as such Google Sheets was not able to import the embedded HTML table. 
+Once the HTML table was isolated it was compiled on a dedicated web page found at [this page](https://oughegr.neocities.org/), to then be imported using Sheets' `=IMPORTHTML("https://oughegr.neocities.org/", "table", n)`, where `n` was 1-23.
+
+The resulting data can be found [here](https://docs.google.com/spreadsheets/d/1LsJBjsZ38paX0MrHKggheRsNlp18-JJRSkHBtGmfKiQ/edit?usp=sharing).
 
 ## 2. Understanding Data
 

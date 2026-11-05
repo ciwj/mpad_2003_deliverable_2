@@ -24,24 +24,6 @@ And to create an unordered list, we simply put a star (`*`) before each item.
 
 ## 1. Getting Data
 
-Use two hashtag symbols (`##`) to create a level 2 heading like this one.
-
-To include a screen capture, use the sample code below. Your images should be saved in the same folder as your `.md` file.
-
-![](import-screen-capture.png)<br>
-*Figure 1: The "Import file" prompt on Google Sheets.*
-
-**Here are examples of functions and lines of code put in grey boxes:**
-
-1. If you name a function, put it between "angled" quotation marks like this: `IMPORTHTML`.
-1. If you want to include the entire line of code, do the same thing, albeit with your entire code: `=IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)`.
-1. Alternatively, you can put your code in an independent box using the template below:
-
-``` r
-=IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)
-```
-This also shows how to create an ordered list. Simply put `1.` before each item.
-
 All data was sourced from the Ottawa Neighbourhood Study (ONS-SQO). To gather the data from their [website](https://ons-sqo.ca/maps/), the chart visualization for a given dataset was selected. HTML sources were downloaded from the page, and the data table manually selected. This is because the data takes the form of an interactive visualization with options between map and chart views, and as such Google Sheets was not able to import the embedded HTML table. 
 Once the HTML table was isolated it was compiled on a dedicated web page found at [this page](https://oughegr.neocities.org/), to then be imported using Sheets' `=IMPORTHTML("https://oughegr.neocities.org/", "table", n)`, where `n` was 1-23.
 
@@ -49,25 +31,15 @@ The resulting data can be found [here](https://docs.google.com/spreadsheets/d/1L
 
 ## 2. Understanding Data
 
+
+
 ### 2.1. VIMO Analysis
 
-Use three hashtag symbols (`###`) to create a level 3 heading like this one. Please follow this template when it comes to level 1 and level 2 headings. However, you can use level 3 headings as you see fit.
+Several neighbourhoods were excluded due to an absence of data, as "Missing" data - the original datasets exclude several, such as Carleton University and Beechwood Cemetary, due to not having reliable data in those communities. At this point, the list of communities, separated by slashes, are:
 
-Insert text here.
-
-Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
-
-**For example:**
-
-As seen in Bounegru & Gray (2011), a data visualization should be clear...
-
-### 2.2. Cleaning Data
-
-Several neighbourhoods were excluded due to an absence of data - the original datasets exclude several, such as Carleton University and Beechwood Cemetary, due to not having reliable data in those communities. At this point, the list of communities, separated by slashes, are:
-
-Alta Vista / Bayshore / Beacon Hill South - Cardinal Heights / Beaverbrook / Bells Corners East / Bells Corners West / Billings Bridge - Heron Park / Blackburn Hamlet / Blossom Park - Timbermill / Borden Farm - Fisher Glen / Braemar Park - Bel Air Heights - Copeland Park / Bridlewood - Emerald Meadows / Britannia / Brookside - Briarbrook - Morgan's Grant / Cardinal Creek / Carleton Heights - Courtland Park / Carlington / Carp / Carson Grove - Carson Meadows / Centrepointe / Centretown / Chapel Hill North / Chapel Hill South / Chapman Mills / City view / Civic Hospital / Constance Bay / Convent Glen - Orléans Woods / Corkery / Craig Henry - Manordale / Crestview - Tanglewood / Crystal Bay - Lakeview Park / Cumberland / Dunrobin / Edwards - Carlsbad Springs / Elmvale - Canterbury / Emerald Woods - Sawmill Creek / Fallingbrook / Findlay Creek / Fisher Heights / Fitzroy / Glebe - Dows Lake / Glen Cairn / Greely / Greenboro East / Greenboro West / Hawthorne Meadows - Sheffield Glen / Hintonburg - Mechanicsville / Hunt Club Park / Iris / Island Park - Wellington Village / Kanata Lakes / Katimavik - Hazeldean / Kinburn / Laurentian / Ledbury - Heron Gate - Ridgemont / Leslie Park - Bruce Farm / Lowertown East / Lowertown West / Manor Park / Manotick / Marlborough / Merivale Gardens - Grenfell Glen - Pineglen - Country Place / Metcalfe / Munster - Ashton / Navan - Sarsfield / New Edinburgh / North Gower - Kars / Old Barrhaven East / Old Barrhaven West / Old Hunt Club / Old Ottawa East / Old Ottawa South / Orléans Village - Chateauneuf / Osgoode - Vernon / Overbrook / Parkwood Hills / Pineview / Playfair Park - Guildwood Estates / Portobello South / Qualicum - Redwood / Queensway Terrace North / Queenswood - Chatelaine / Queenswood Heights / Richmond / Rideau Crest - Davidson Heights / Riverside Park - Mooney's Bay / Riverside Park South - Revelstoke / Riverside South - Leitrim / Riverview / Rockcliffe Park / Rothwell Heights - Beacon Hill North / Sandy Hill / South Keys / Stittsville / Stittsville East / Stittsville North / Stonebridge - Half Moon Bay / Trend-Arlington / Vanier North / Vanier South / Vars / Wateridge Village / West Centretown / Westboro / Whitehaven - Woodpark - Glabar Park
-
-Rural communities, adapted from Ottawa's rural & urban boundaries sourced from GeoOttawa (City of Ottawa, n.d.), were excluded from the dataset. The data represented was heavily skewed by rural neighbourhoods, particularly when it came to healthcare. This removed the neighbourhoods of Fitzroy, Constance Bay, Kinburn, Dunrobin, Carp, Corkery, Munster-Ashton, Richmond, Marlborough, North Gower-Kars, Manotick, Greely, Osgoode-Vernon, Metcalfe, Edwards-Carlsbad Springs, Vars, Navan-Sarsfield, and Cumberland. The greenbelt was already removed in the last step. The change in correlation based off this step can be seen below.
+Rural communities, adapted from Ottawa's rural & urban boundaries sourced from GeoOttawa (City of Ottawa, n.d.), were excluded from the dataset. The data represented was heavily skewed by rural neighbourhoods, particularly when it came to healthcare. This removed the neighbourhoods of:<br>
+Fitzroy, Constance Bay, Kinburn, Dunrobin, Carp, Corkery, Munster-Ashton, Richmond, Marlborough, North Gower-Kars, Manotick, Greely, Osgoode-Vernon, Metcalfe, Edwards-Carlsbad Springs, Vars, Navan-Sarsfield, and Cumberland.<br>
+The greenbelt was already removed in the last step. The change in correlation based off this step can be seen below, showing why I considered these "Outlier" data.
 
 | CORRELATION CHANGE (ABS. - With Rural minus Without)                                                | Total population (2021) | Average after-tax income among recipients (2020, $) | Low-income prevalence (LIM-AT, total population, %) | 2021 SES Quintiles | % renter households | % of households in core housing need | % Total racialized population (2021) | % immigrants | % recent immigrants (arrived 2016-2021) | % refugees | Emergency department visits: all (age-standardized rate per 1,000 residents, age 0+ years) | Emergency department visits: high urgency (age-standardized rate per 1,000 residents, age 0+ years) | Emergency department visits: low urgency (age-standardized rate per 1,000 residents, age 0+ years) | Mental health visits to primary care (age-standardized rate per 100 residents, age 20+ years) | % attached to a primary care provider | % uncertainly attached to a primary care provider | 2+ common chronic conditions (age-standardized rate per 100 residents, age 20+ years) | 4+ chronic conditions (age-standardized rate per 100 residents, age 0+ years) | Voter turnout (%, 2022 municipal election) | Total Criminal Code offences (per 1000, plus 50m buffer) | Total crimes against property (per 1000, plus 50m buffer) | Total crimes against the person (per 1000, plus 50m buffer) | Total other crimes (per 1000, plus 50m buffer) |
 |-----------------------------------------------------------------------------------------------------|-------------------------|-----------------------------------------------------|-----------------------------------------------------|--------------------|---------------------|--------------------------------------|--------------------------------------|--------------|-----------------------------------------|------------|--------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|---------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|--------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------|-------------------------------------------------------------|------------------------------------------------|
@@ -97,6 +69,13 @@ Rural communities, adapted from Ottawa's rural & urban boundaries sourced from G
 |                                                                                                     |                         |                                                     |                                                     |                    |                     |                                      |                                      |              |                                         |            |                                                                                            |                                                                                                     |                                                                                                    |                                                                                               |                                       |                                                   |                                                                                       |                                                                               |                                            |                                                          |                                                           |                                                             |                                                |
 | Avg. Correlation Change                                                                             |                    0.13 |                                                0.01 |                                               -0.01 |                  0 |                   0 |                                    0 |                                 0.06 |         0.06 |                                    0.02 |       0.01 |                                                                                      -0.11 |                                                                                               -0.06 |                                                                                              -0.22 |                                                                                          0.05 |                                     0 |                                                 0 |                                                                                 -0.03 |                                                                          0.01 |                                          0 |                                                     0.01 |                                                      0.02 |                                                        0.01 |                                          -0.08 |
 
+The process for this table will be outlined later on.
+
+Past this point, no invalid, missing, or notable datapoints were present in the dataset.
+
+### 2.2. Cleaning Data
+
+Here, data formatting was corrected - the dataset was already fairly clean, and so my first step was setting the number formatting - dollars for the average income values, and percentages for the data - the latter needed to be divided by 100 as changing the format to percentages multiplied them back up, by creating a temporary column with the formula `=D2 / 100`.
 
 ### 2.3. Analyzing Data
 

@@ -63,221 +63,40 @@ As seen in Bounegru & Gray (2011), a data visualization should be clear...
 
 ### 2.2. Cleaning Data
 
-Several neighbourhoods were excluded due to an absence of data - the original datasets exclude several, such as Carleton University and Beechwood Cemetary, due to not having reliable data in those communities. At this point, the list of communities are:
+Several neighbourhoods were excluded due to an absence of data - the original datasets exclude several, such as Carleton University and Beechwood Cemetary, due to not having reliable data in those communities. At this point, the list of communities, separated by slashes, are:
+
+Alta Vista / Bayshore / Beacon Hill South - Cardinal Heights / Beaverbrook / Bells Corners East / Bells Corners West / Billings Bridge - Heron Park / Blackburn Hamlet / Blossom Park - Timbermill / Borden Farm - Fisher Glen / Braemar Park - Bel Air Heights - Copeland Park / Bridlewood - Emerald Meadows / Britannia / Brookside - Briarbrook - Morgan's Grant / Cardinal Creek / Carleton Heights - Courtland Park / Carlington / Carp / Carson Grove - Carson Meadows / Centrepointe / Centretown / Chapel Hill North / Chapel Hill South / Chapman Mills / City view / Civic Hospital / Constance Bay / Convent Glen - Orléans Woods / Corkery / Craig Henry - Manordale / Crestview - Tanglewood / Crystal Bay - Lakeview Park / Cumberland / Dunrobin / Edwards - Carlsbad Springs / Elmvale - Canterbury / Emerald Woods - Sawmill Creek / Fallingbrook / Findlay Creek / Fisher Heights / Fitzroy / Glebe - Dows Lake / Glen Cairn / Greely / Greenboro East / Greenboro West / Hawthorne Meadows - Sheffield Glen / Hintonburg - Mechanicsville / Hunt Club Park / Iris / Island Park - Wellington Village / Kanata Lakes / Katimavik - Hazeldean / Kinburn / Laurentian / Ledbury - Heron Gate - Ridgemont / Leslie Park - Bruce Farm / Lowertown East / Lowertown West / Manor Park / Manotick / Marlborough / Merivale Gardens - Grenfell Glen - Pineglen - Country Place / Metcalfe / Munster - Ashton / Navan - Sarsfield / New Edinburgh / North Gower - Kars / Old Barrhaven East / Old Barrhaven West / Old Hunt Club / Old Ottawa East / Old Ottawa South / Orléans Village - Chateauneuf / Osgoode - Vernon / Overbrook / Parkwood Hills / Pineview / Playfair Park - Guildwood Estates / Portobello South / Qualicum - Redwood / Queensway Terrace North / Queenswood - Chatelaine / Queenswood Heights / Richmond / Rideau Crest - Davidson Heights / Riverside Park - Mooney's Bay / Riverside Park South - Revelstoke / Riverside South - Leitrim / Riverview / Rockcliffe Park / Rothwell Heights - Beacon Hill North / Sandy Hill / South Keys / Stittsville / Stittsville East / Stittsville North / Stonebridge - Half Moon Bay / Trend-Arlington / Vanier North / Vanier South / Vars / Wateridge Village / West Centretown / Westboro / Whitehaven - Woodpark - Glabar Park
+
+Rural communities, adapted from Ottawa's rural & urban boundaries sourced from GeoOttawa (City of Ottawa, n.d.), were excluded from the dataset. The data represented was heavily skewed by rural neighbourhoods, particularly when it came to healthcare. This removed the neighbourhoods of Fitzroy, Constance Bay, Kinburn, Dunrobin, Carp, Corkery, Munster-Ashton, Richmond, Marlborough, North Gower-Kars, Manotick, Greely, Osgoode-Vernon, Metcalfe, Edwards-Carlsbad Springs, Vars, Navan-Sarsfield, and Cumberland. The greenbelt was already removed in the last step. The change in correlation based off this step can be seen below.
+
+| CORRELATION CHANGE (ABS. - With Rural minus Without)                                                | Total population (2021) | Average after-tax income among recipients (2020, $) | Low-income prevalence (LIM-AT, total population, %) | 2021 SES Quintiles | % renter households | % of households in core housing need | % Total racialized population (2021) | % immigrants | % recent immigrants (arrived 2016-2021) | % refugees | Emergency department visits: all (age-standardized rate per 1,000 residents, age 0+ years) | Emergency department visits: high urgency (age-standardized rate per 1,000 residents, age 0+ years) | Emergency department visits: low urgency (age-standardized rate per 1,000 residents, age 0+ years) | Mental health visits to primary care (age-standardized rate per 100 residents, age 20+ years) | % attached to a primary care provider | % uncertainly attached to a primary care provider | 2+ common chronic conditions (age-standardized rate per 100 residents, age 20+ years) | 4+ chronic conditions (age-standardized rate per 100 residents, age 0+ years) | Voter turnout (%, 2022 municipal election) | Total Criminal Code offences (per 1000, plus 50m buffer) | Total crimes against property (per 1000, plus 50m buffer) | Total crimes against the person (per 1000, plus 50m buffer) | Total other crimes (per 1000, plus 50m buffer) |
+|-----------------------------------------------------------------------------------------------------|-------------------------|-----------------------------------------------------|-----------------------------------------------------|--------------------|---------------------|--------------------------------------|--------------------------------------|--------------|-----------------------------------------|------------|--------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|---------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|--------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------|-------------------------------------------------------------|------------------------------------------------|
+| Total population (2021)                                                                             |                       0 |                                               -0.12 |                                                 0.3 |               0.37 |                0.39 |                                 0.35 |                                 0.18 |         0.22 |                                    0.25 |       0.25 |                                                                                       0.04 |                                                                                                0.11 |                                                                                              -0.13 |                                                                                          0.18 |                                 -0.35 |                                              0.35 |                                                                                  0.11 |                                                                          0.29 |                                      -0.05 |                                                     0.15 |                                                      0.19 |                                                        0.15 |                                          -0.32 |
+| Average after-tax income among recipients (2020, $)                                                 |                   -0.12 |                                                   0 |                                               -0.01 |                  0 |               -0.01 |                                    0 |                                 0.03 |         0.04 |                                    0.03 |       0.04 |                                                                                       0.08 |                                                                                                0.03 |                                                                                               0.25 |                                                                                         -0.06 |                                 -0.01 |                                              0.01 |                                                                                     0 |                                                                         -0.01 |                                       0.01 |                                                    -0.03 |                                                     -0.02 |                                                       -0.01 |                                           0.07 |
+| Low-income prevalence (LIM-AT, total population, %)                                                 |                     0.3 |                                               -0.01 |                                                   0 |               0.01 |               -0.01 |                                    0 |                                 0.17 |         0.17 |                                    0.07 |       0.05 |                                                                                      -0.22 |                                                                                               -0.12 |                                                                                              -0.43 |                                                                                          0.05 |                                  0.01 |                                             -0.01 |                                                                                 -0.05 |                                                                         -0.01 |                                      -0.05 |                                                     0.01 |                                                      0.02 |                                                        0.01 |                                          -0.15 |
+| 2021 SES Quintiles                                                                                  |                    0.37 |                                                   0 |                                                0.01 |                  0 |                0.03 |                                    0 |                                  0.2 |         0.19 |                                    0.09 |       0.04 |                                                                                      -0.23 |                                                                                               -0.13 |                                                                                              -0.45 |                                                                                           0.1 |                                 -0.04 |                                              0.04 |                                                                                 -0.08 |                                                                         -0.02 |                                      -0.05 |                                                     0.04 |                                                      0.03 |                                                        0.02 |                                          -0.18 |
+| % renter households                                                                                 |                    0.39 |                                               -0.01 |                                               -0.01 |               0.03 |                   0 |                                    0 |                                 0.28 |         0.29 |                                    0.12 |        0.1 |                                                                                      -0.29 |                                                                                               -0.17 |                                                                                              -0.53 |                                                                                          0.12 |                                 -0.01 |                                              0.01 |                                                                                 -0.05 |                                                                          0.01 |                                      -0.06 |                                                        0 |                                                      0.02 |                                                           0 |                                          -0.19 |
+| % of households in core housing need                                                                |                    0.35 |                                                   0 |                                                   0 |                  0 |                   0 |                                    0 |                                 0.19 |         0.18 |                                    0.08 |       0.05 |                                                                                      -0.22 |                                                                                               -0.12 |                                                                                              -0.41 |                                                                                          0.07 |                                     0 |                                                 0 |                                                                                 -0.06 |                                                                         -0.02 |                                      -0.05 |                                                     0.02 |                                                      0.03 |                                                        0.01 |                                          -0.16 |
+| % Total racialized population (2021)                                                                |                    0.18 |                                                0.03 |                                                0.17 |                0.2 |                0.28 |                                 0.19 |                                    0 |         0.02 |                                    0.09 |       0.08 |                                                                                      -0.21 |                                                                                               -0.08 |                                                                                              -0.51 |                                                                                          0.37 |                                 -0.26 |                                              0.26 |                                                                                 -0.01 |                                                                          0.23 |                                       0.09 |                                                     0.19 |                                                      0.18 |                                                        0.17 |                                          -0.32 |
+| % immigrants                                                                                        |                    0.22 |                                                0.04 |                                                0.17 |               0.19 |                0.29 |                                 0.18 |                                 0.02 |            0 |                                    0.07 |       0.06 |                                                                                      -0.23 |                                                                                               -0.09 |                                                                                              -0.53 |                                                                                          0.41 |                                 -0.29 |                                              0.29 |                                                                                 -0.03 |                                                                          0.23 |                                        0.1 |                                                      0.2 |                                                      0.21 |                                                        0.18 |                                          -0.33 |
+| % recent immigrants (arrived 2016-2021)                                                             |                    0.25 |                                                0.03 |                                                0.07 |               0.09 |                0.12 |                                 0.08 |                                 0.09 |         0.07 |                                       0 |       0.04 |                                                                                       -0.2 |                                                                                                -0.1 |                                                                                              -0.45 |                                                                                          0.22 |                                 -0.12 |                                              0.12 |                                                                                 -0.04 |                                                                           0.1 |                                          0 |                                                      0.1 |                                                      0.09 |                                                        0.08 |                                          -0.22 |
+| % refugees                                                                                          |                    0.25 |                                                0.04 |                                                0.05 |               0.04 |                 0.1 |                                 0.05 |                                 0.08 |         0.06 |                                    0.04 |          0 |                                                                                      -0.21 |                                                                                               -0.12 |                                                                                              -0.41 |                                                                                          0.13 |                                  -0.1 |                                               0.1 |                                                                                 -0.06 |                                                                          0.07 |                                       0.02 |                                                     0.09 |                                                      0.09 |                                                        0.07 |                                          -0.19 |
+| Emergency department visits: all (age-standardized rate per 1,000 residents, age 0+ years)          |                    0.04 |                                                0.08 |                                               -0.22 |              -0.23 |               -0.29 |                                -0.22 |                                -0.21 |        -0.23 |                                    -0.2 |      -0.21 |                                                                                          0 |                                                                                               -0.03 |                                                                                              -0.07 |                                                                                         -0.14 |                                  0.32 |                                             -0.32 |                                                                                 -0.09 |                                                                         -0.17 |                                       0.05 |                                                    -0.13 |                                                     -0.13 |                                                       -0.14 |                                           0.04 |
+| Emergency department visits: high urgency (age-standardized rate per 1,000 residents, age 0+ years) |                    0.11 |                                                0.03 |                                               -0.12 |              -0.13 |               -0.17 |                                -0.12 |                                -0.08 |        -0.09 |                                    -0.1 |      -0.12 |                                                                                      -0.03 |                                                                                                   0 |                                                                                              -0.19 |                                                                                         -0.05 |                                  0.19 |                                             -0.19 |                                                                                 -0.05 |                                                                         -0.08 |                                          0 |                                                    -0.07 |                                                     -0.08 |                                                       -0.07 |                                           0.03 |
+| Emergency department visits: low urgency (age-standardized rate per 1,000 residents, age 0+ years)  |                   -0.13 |                                                0.25 |                                               -0.43 |              -0.45 |               -0.53 |                                -0.41 |                                -0.51 |        -0.53 |                                   -0.45 |      -0.41 |                                                                                      -0.07 |                                                                                               -0.19 |                                                                                                  0 |                                                                                         -0.22 |                                   0.6 |                                              -0.6 |                                                                                 -0.17 |                                                                          -0.3 |                                       0.19 |                                                    -0.26 |                                                     -0.26 |                                                       -0.28 |                                           0.04 |
+| Mental health visits to primary care (age-standardized rate per 100 residents, age 20+ years)       |                    0.18 |                                               -0.06 |                                                0.05 |                0.1 |                0.12 |                                 0.07 |                                 0.37 |         0.41 |                                    0.22 |       0.13 |                                                                                      -0.14 |                                                                                               -0.05 |                                                                                              -0.22 |                                                                                             0 |                                 -0.19 |                                              0.19 |                                                                                 -0.04 |                                                                          0.01 |                                      -0.07 |                                                     0.04 |                                                      0.04 |                                                        0.02 |                                          -0.06 |
+| % attached to a primary care provider                                                               |                   -0.35 |                                               -0.01 |                                                0.01 |              -0.04 |               -0.01 |                                    0 |                                -0.26 |        -0.29 |                                   -0.12 |       -0.1 |                                                                                       0.32 |                                                                                                0.19 |                                                                                                0.6 |                                                                                         -0.19 |                                     0 |                                                 0 |                                                                                  0.03 |                                                                         -0.05 |                                       0.04 |                                                        0 |                                                     -0.02 |                                                        0.01 |                                            0.2 |
+| % uncertainly attached to a primary care provider                                                   |                    0.35 |                                                0.01 |                                               -0.01 |               0.04 |                0.01 |                                    0 |                                 0.26 |         0.29 |                                    0.12 |        0.1 |                                                                                      -0.32 |                                                                                               -0.19 |                                                                                               -0.6 |                                                                                          0.19 |                                     0 |                                                 0 |                                                                                 -0.03 |                                                                          0.05 |                                      -0.04 |                                                        0 |                                                      0.02 |                                                       -0.01 |                                           -0.2 |
+| 2+ common chronic conditions (age-standardized rate per 100 residents, age 20+ years)               |                    0.11 |                                                   0 |                                               -0.05 |              -0.08 |               -0.05 |                                -0.06 |                                -0.01 |        -0.03 |                                   -0.04 |      -0.06 |                                                                                      -0.09 |                                                                                               -0.05 |                                                                                              -0.17 |                                                                                         -0.04 |                                  0.03 |                                             -0.03 |                                                                                     0 |                                                                         -0.03 |                                      -0.03 |                                                    -0.01 |                                                     -0.02 |                                                       -0.02 |                                           0.03 |
+| 4+ chronic conditions (age-standardized rate per 100 residents, age 0+ years)                       |                    0.29 |                                               -0.01 |                                               -0.01 |              -0.02 |                0.01 |                                -0.02 |                                 0.23 |         0.23 |                                     0.1 |       0.07 |                                                                                      -0.17 |                                                                                               -0.08 |                                                                                               -0.3 |                                                                                          0.01 |                                 -0.05 |                                              0.05 |                                                                                 -0.03 |                                                                             0 |                                      -0.07 |                                                     0.02 |                                                      0.01 |                                                        0.01 |                                           0.02 |
+| Voter turnout (%, 2022 municipal election)                                                          |                   -0.05 |                                                0.01 |                                               -0.05 |              -0.05 |               -0.06 |                                -0.05 |                                 0.09 |          0.1 |                                       0 |       0.02 |                                                                                       0.05 |                                                                                                   0 |                                                                                               0.19 |                                                                                         -0.07 |                                  0.04 |                                             -0.04 |                                                                                 -0.03 |                                                                         -0.07 |                                          0 |                                                    -0.06 |                                                     -0.05 |                                                       -0.05 |                                           0.14 |
+| Total Criminal Code offences (per 1000, plus 50m buffer)                                            |                    0.15 |                                               -0.03 |                                                0.01 |               0.04 |                   0 |                                 0.02 |                                 0.19 |          0.2 |                                     0.1 |       0.09 |                                                                                      -0.13 |                                                                                               -0.07 |                                                                                              -0.26 |                                                                                          0.04 |                                     0 |                                                 0 |                                                                                 -0.01 |                                                                          0.02 |                                      -0.06 |                                                        0 |                                                      0.01 |                                                        0.01 |                                          -0.02 |
+| Total crimes against property (per 1000, plus 50m buffer)                                           |                    0.19 |                                               -0.02 |                                                0.02 |               0.03 |                0.02 |                                 0.03 |                                 0.18 |         0.21 |                                    0.09 |       0.09 |                                                                                      -0.13 |                                                                                               -0.08 |                                                                                              -0.26 |                                                                                          0.04 |                                 -0.02 |                                              0.02 |                                                                                 -0.02 |                                                                          0.01 |                                      -0.05 |                                                     0.01 |                                                         0 |                                                           0 |                                          -0.01 |
+| Total crimes against the person (per 1000, plus 50m buffer)                                         |                    0.15 |                                               -0.01 |                                                0.01 |               0.02 |                   0 |                                 0.01 |                                 0.17 |         0.18 |                                    0.08 |       0.07 |                                                                                      -0.14 |                                                                                               -0.07 |                                                                                              -0.28 |                                                                                          0.02 |                                  0.01 |                                             -0.01 |                                                                                 -0.02 |                                                                          0.01 |                                      -0.05 |                                                     0.01 |                                                         0 |                                                           0 |                                          -0.02 |
+| Total other crimes (per 1000, plus 50m buffer)                                                      |                   -0.32 |                                                0.07 |                                               -0.15 |              -0.18 |               -0.19 |                                -0.16 |                                -0.32 |        -0.33 |                                   -0.22 |      -0.19 |                                                                                       0.04 |                                                                                                0.03 |                                                                                               0.04 |                                                                                         -0.06 |                                   0.2 |                                              -0.2 |                                                                                  0.03 |                                                                          0.02 |                                       0.14 |                                                    -0.02 |                                                     -0.01 |                                                       -0.02 |                                              0 |
+|                                                                                                     |                         |                                                     |                                                     |                    |                     |                                      |                                      |              |                                         |            |                                                                                            |                                                                                                     |                                                                                                    |                                                                                               |                                       |                                                   |                                                                                       |                                                                               |                                            |                                                          |                                                           |                                                             |                                                |
+| Avg. Correlation Change                                                                             |                    0.13 |                                                0.01 |                                               -0.01 |                  0 |                   0 |                                    0 |                                 0.06 |         0.06 |                                    0.02 |       0.01 |                                                                                      -0.11 |                                                                                               -0.06 |                                                                                              -0.22 |                                                                                          0.05 |                                     0 |                                                 0 |                                                                                 -0.03 |                                                                          0.01 |                                          0 |                                                     0.01 |                                                      0.02 |                                                        0.01 |                                          -0.08 |
 
-Ottawa
-
-Alta Vista
-
-Bayshore
-
-Beacon Hill South - Cardinal Heights
-
-Beaverbrook
-
-Bells Corners East
-
-Bells Corners West
-
-Billings Bridge - Heron Park
-
-Blackburn Hamlet
-
-Blossom Park - Timbermill
-
-Borden Farm - Fisher Glen
-
-Braemar Park - Bel Air Heights - Copeland Park
-
-Bridlewood - Emerald Meadows
-
-Britannia
-
-Brookside - Briarbrook - Morgan's Grant
-
-Cardinal Creek
-
-Carleton Heights - Courtland Park
-
-Carlington
-
-Carp
-
-Carson Grove - Carson Meadows
-
-Centrepointe
-
-Centretown
-
-Chapel Hill North
-
-Chapel Hill South
-
-Chapman Mills
-
-City view
-
-Civic Hospital
-
-Constance Bay
-
-Convent Glen - Orléans Woods
-
-Corkery
-
-Craig Henry - Manordale
-
-Crestview - Tanglewood
-
-Crystal Bay - Lakeview Park
-
-Cumberland
-
-Dunrobin
-
-Edwards - Carlsbad Springs
-
-Elmvale - Canterbury
-
-Emerald Woods - Sawmill Creek
-
-Fallingbrook
-
-Findlay Creek
-
-Fisher Heights
-
-Fitzroy
-
-Glebe - Dows Lake
-
-Glen Cairn
-
-Greely
-
-Greenboro East
-
-Greenboro West
-
-Hawthorne Meadows - Sheffield Glen
-
-Hintonburg - Mechanicsville
-
-Hunt Club Park
-
-Iris
-
-Island Park - Wellington Village
-
-Kanata Lakes
-
-Katimavik - Hazeldean
-
-Kinburn
-
-Laurentian
-
-Ledbury - Heron Gate - Ridgemont
-
-Leslie Park - Bruce Farm
-
-Lowertown East
-
-Lowertown West
-
-Manor Park
-
-Manotick
-
-Marlborough
-
-Merivale Gardens - Grenfell Glen - Pineglen - Country Place
-
-Metcalfe
-
-Munster - Ashton
-
-Navan - Sarsfield
-
-New Edinburgh
-
-North Gower - Kars
-
-Old Barrhaven East
-
-Old Barrhaven West
-
-Old Hunt Club
-
-Old Ottawa East
-
-Old Ottawa South
-
-Orléans Village - Chateauneuf
-
-Osgoode - Vernon
-
-Overbrook
-
-Parkwood Hills
-
-Pineview
-
-Playfair Park - Guildwood Estates
-
-Portobello South
-
-Qualicum - Redwood
-
-Queensway Terrace North
-
-Queenswood - Chatelaine
-
-Queenswood Heights
-
-Richmond
-
-Rideau Crest - Davidson Heights
-
-Riverside Park - Mooney's Bay
-
-Riverside Park South - Revelstoke
-
-Riverside South - Leitrim
-
-Riverview
-
-Rockcliffe Park
-
-Rothwell Heights - Beacon Hill North
-
-Sandy Hill
-
-South Keys
-
-Stittsville
-
-Stittsville East
-
-Stittsville North
-
-Stonebridge - Half Moon Bay
-
-Trend-Arlington
-
-Vanier North
-
-Vanier South
-
-Vars
-
-Wateridge Village
-
-West Centretown
-
-Westboro
-
-Whitehaven - Woodpark - Glabar Park
 
 ### 2.3. Analyzing Data
 
@@ -323,8 +142,4 @@ Insert text here.
 
 ## 4. References
 
-Include a list of your references here. Please follow [APA](https://apastyle.apa.org/style-grammar-guidelines/references) or [MLA](https://www.mla.org/MLA-Style) guidelines for references. Hanging paragraphs aren't required though.
-
-**Here's an example:**
-
-Bounegru, L., & Gray, J. (Eds.). (2021). *The Data Journalism Handbook 2: Towards A Critical Data Practice*. Amsterdam University Press. [https://ocul-crl.primo.exlibrisgroup.com/permalink/01OCUL_CRL/hgdufh/alma991022890087305153](https://ocul-crl.primo.exlibrisgroup.com/permalink/01OCUL_CRL/hgdufh/alma991022890087305153)
+City of Ottawa. (n.d.). *GeoOttawa* https://maps.ottawa.ca/geoottawa/

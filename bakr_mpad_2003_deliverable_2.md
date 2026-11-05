@@ -63,7 +63,219 @@ As seen in Bounegru & Gray (2011), a data visualization should be clear...
 
 ### 2.2. Cleaning Data
 
-Insert text here.
+Several neighbourhoods were excluded due to an absence of data - the original datasets exclude several, such as Carleton University and Beechwood Cemetary, due to not having reliable data in those communities. At this point, the list of communities are:
+
+Alta Vista
+
+Bayshore
+
+Beacon Hill South - Cardinal Heights
+
+Beaverbrook
+
+Bells Corners East
+
+Bells Corners West
+
+Billings Bridge - Heron Park
+
+Blackburn Hamlet
+
+Blossom Park - Timbermill
+
+Borden Farm - Fisher Glen
+
+Braemar Park - Bel Air Heights - Copeland Park
+
+Bridlewood - Emerald Meadows
+
+Britannia
+
+Brookside - Briarbrook - Morgan's Grant
+
+Cardinal Creek
+
+Carleton Heights - Courtland Park
+
+Carlington
+
+Carp
+
+Carson Grove - Carson Meadows
+
+Centrepointe
+
+Centretown
+
+Chapel Hill North
+
+Chapel Hill South
+
+Chapman Mills
+
+City view
+
+Civic Hospital
+
+Constance Bay
+
+Convent Glen - Orléans Woods
+
+Corkery
+
+Craig Henry - Manordale
+
+Crestview - Tanglewood
+
+Crystal Bay - Lakeview Park
+
+Cumberland
+
+Dunrobin
+
+Edwards - Carlsbad Springs
+
+Elmvale - Canterbury
+
+Emerald Woods - Sawmill Creek
+
+Fallingbrook
+
+Findlay Creek
+
+Fisher Heights
+
+Fitzroy
+
+Glebe - Dows Lake
+
+Glen Cairn
+
+Greely
+
+Greenboro East
+
+Greenboro West
+
+Hawthorne Meadows - Sheffield Glen
+
+Hintonburg - Mechanicsville
+
+Hunt Club Park
+
+Iris
+
+Island Park - Wellington Village
+
+Kanata Lakes
+
+Katimavik - Hazeldean
+
+Kinburn
+
+Laurentian
+
+Ledbury - Heron Gate - Ridgemont
+
+Leslie Park - Bruce Farm
+
+Lowertown East
+
+Lowertown West
+
+Manor Park
+
+Manotick
+
+Marlborough
+
+Merivale Gardens - Grenfell Glen - Pineglen - Country Place
+
+Metcalfe
+
+Munster - Ashton
+
+Navan - Sarsfield
+
+New Edinburgh
+
+North Gower - Kars
+
+Old Barrhaven East
+
+Old Barrhaven West
+
+Old Hunt Club
+
+Old Ottawa East
+
+Old Ottawa South
+
+Orléans Village - Chateauneuf
+
+Osgoode - Vernon
+
+Overbrook
+
+Parkwood Hills
+
+Pineview
+
+Playfair Park - Guildwood Estates
+
+Portobello South
+
+Qualicum - Redwood
+
+Queensway Terrace North
+
+Queenswood - Chatelaine
+
+Queenswood Heights
+
+Richmond
+
+Rideau Crest - Davidson Heights
+
+Riverside Park - Mooney's Bay
+
+Riverside Park South - Revelstoke
+
+Riverside South - Leitrim
+
+Riverview
+
+Rockcliffe Park
+
+Rothwell Heights - Beacon Hill North
+
+Sandy Hill
+
+South Keys
+
+Stittsville
+
+Stittsville East
+
+Stittsville North
+
+Stonebridge - Half Moon Bay
+
+Trend-Arlington
+
+Vanier North
+
+Vanier South
+
+Vars
+
+Wateridge Village
+
+West Centretown
+
+Westboro
+
+Whitehaven - Woodpark - Glabar Park
 
 ### 2.3. Analyzing Data
 

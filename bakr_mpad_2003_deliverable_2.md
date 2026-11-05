@@ -90,7 +90,11 @@ Past this point, no invalid, missing, or notable datapoints were present in the 
 
 ### 2.2. Cleaning Data
 
-Here, data formatting was corrected - the dataset was already fairly clean, and so my first step was setting the number formatting - dollars for the average income values, and percentages for the data - the latter needed to be divided by 100 as changing the format to percentages multiplied them back up, by creating a temporary column with the formula `=D2 / 100`.
+Here, data formatting was corrected - the dataset was already fairly clean, and so my first step was setting the number formatting - dollars for the average income values, and percentages for the data - the latter needed to be divided by 100 as changing the format to percentages multiplied them back up, by creating a temporary column with the formula `=D2 / 100`. I also made the decision to remove *% Attached to primary care*, as it's equivalent to 100% minus the *% Uncertainly attached to primary care* column.
+
+The first row and column (data headings & neighbourhood names) were frozen in Google Sheets, as the amount of data makes it much easier to understand when frozen.
+
+For legibility, I set up conditional formatting per column as well, using colour scales. Datatypes where a higher value represented a positive outcome were given a white-green gradient, the inverse white-red, and neutral ones with gold.
 
 ### 2.3. Analyzing Data
 

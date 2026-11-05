@@ -28,10 +28,9 @@ Looking at the initial data,
 
 ### 2.1. VIMO Analysis
 
-Several neighbourhoods were excluded due to an absence of data, as "Missing" data - the original datasets exclude several, such as Carleton University and Beechwood Cemetary, due to not having reliable data in those communities. At this point, the list of communities, separated by slashes, are:
+Several neighbourhoods were excluded due to an absence of data, as "Missing" data - the original datasets exclude several, such as Carleton University and Beechwood Cemetary, due to not having reliable data in those communities - these can be found in the table at the end of this section, under *Rows Cleaned* (Data Missing). At this point, the list of communities, separated by slashes, are:
 
-Rural communities, adapted from Ottawa's rural & urban boundaries sourced from GeoOttawa (City of Ottawa, n.d.), were excluded from the dataset. The data represented was heavily skewed by rural neighbourhoods, particularly when it came to healthcare. This removed the neighbourhoods of:<br>
-Fitzroy, Constance Bay, Kinburn, Dunrobin, Carp, Corkery, Munster-Ashton, Richmond, Marlborough, North Gower-Kars, Manotick, Greely, Osgoode-Vernon, Metcalfe, Edwards-Carlsbad Springs, Vars, Navan-Sarsfield, and Cumberland.<br>
+Rural communities, adapted from Ottawa's rural & urban boundaries sourced from GeoOttawa (City of Ottawa, n.d.), were excluded from the dataset. The data represented was heavily skewed by rural neighbourhoods, particularly when it came to healthcare. This removed the neighbourhoods seen in the second column (Rural Outliers) in *Rows Cleaned* below.<br>
 The greenbelt was already removed in the last step. The change in correlation based off this step can be seen below, showing why I considered these "Outlier" data.
 
 | CORRELATION CHANGE (ABS. - With Rural minus Without)                                                | Total population (2021) | Average after-tax income among recipients (2020, $) | Low-income prevalence (LIM-AT, total population, %) | 2021 SES Quintiles | % renter households | % of households in core housing need | % Total racialized population (2021) | % immigrants | % recent immigrants (arrived 2016-2021) | % refugees | Emergency department visits: all (age-standardized rate per 1,000 residents, age 0+ years) | Emergency department visits: high urgency (age-standardized rate per 1,000 residents, age 0+ years) | Emergency department visits: low urgency (age-standardized rate per 1,000 residents, age 0+ years) | Mental health visits to primary care (age-standardized rate per 100 residents, age 20+ years) | % attached to a primary care provider | % uncertainly attached to a primary care provider | 2+ common chronic conditions (age-standardized rate per 100 residents, age 20+ years) | 4+ chronic conditions (age-standardized rate per 100 residents, age 0+ years) | Voter turnout (%, 2022 municipal election) | Total Criminal Code offences (per 1000, plus 50m buffer) | Total crimes against property (per 1000, plus 50m buffer) | Total crimes against the person (per 1000, plus 50m buffer) | Total other crimes (per 1000, plus 50m buffer) |
@@ -65,6 +64,29 @@ The greenbelt was already removed in the last step. The change in correlation ba
 The process for this table will be outlined later on.
 
 Past this point, no invalid, missing, or notable datapoints were present in the dataset.
+
+#### Rows Cleaned
+
+| **Data Missing:**       | **(Rural) Outliers**       |
+|-------------------------|----------------------------|
+| Airport                 | Carp                       |
+| Beechwood Cemetery      | Constance Bay              |
+| Carleton University     | Corkery                    |
+| Colonnade Business Park | Cumberland                 |
+| Experimental Farm       | Dunrobin                   |
+| Greenbelt East          | Edwards - Carlsbad Springs |
+| Greenbelt West          | Fitzroy                    |
+| Industrial East         | Greely                     |
+| Lebreton Development    | Vars                       |
+| Orléans Industrial      | Kinburn                    |
+|                         | Manotick                   |
+|                         | Marlborough                |
+|                         | Metcalfe                   |
+|                         | Munster - Ashton           |
+|                         | Navan - Sarsfield          |
+|                         | North Gower - Kars         |
+|                         | Osgoode - Vernon           |
+|                         | Richmond                   |
 
 ### 2.2. Cleaning Data
 

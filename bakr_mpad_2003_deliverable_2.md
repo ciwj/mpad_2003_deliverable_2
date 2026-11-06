@@ -98,6 +98,10 @@ The first row and column (data headings & neighbourhood names) were frozen in Go
 
 For legibility, I set up conditional formatting per column as well, using colour scales. Datatypes where a higher value represented a positive outcome were given a white-green gradient, the inverse white-red, and neutral ones with gold. 
 
+The final result can be seen below.
+
+![](dataset_cleaned.png)
+
 ### 2.3. Analyzing Data
 
 | CORRELATION                                                                                         | Total population (2021) | Average after-tax income among recipients (2020, $) | Low-income prevalence (LIM-AT, total population, %) | 2021 SES Quintiles | % renter households | % of households in core housing need | % Total racialized population (2021) | % immigrants | % recent immigrants (arrived 2016-2021) | % refugees | Emergency department visits: all (age-standardized rate per 1,000 residents, age 0+ years) | Emergency department visits: high urgency (age-standardized rate per 1,000 residents, age 0+ years) | Emergency department visits: low urgency (age-standardized rate per 1,000 residents, age 0+ years) | Mental health visits to primary care (age-standardized rate per 100 residents, age 20+ years) | % attached to a primary care provider | % uncertainly attached to a primary care provider | 2+ common chronic conditions (age-standardized rate per 100 residents, age 20+ years) | 4+ chronic conditions (age-standardized rate per 100 residents, age 0+ years) | Voter turnout (%, 2022 municipal election) | Total Criminal Code offences (per 1000, plus 50m buffer) | Total crimes against property (per 1000, plus 50m buffer) | Total crimes against the person (per 1000, plus 50m buffer) | Total other crimes (per 1000, plus 50m buffer) |
@@ -126,19 +130,21 @@ For legibility, I set up conditional formatting per column as well, using colour
 | Total crimes against the person (per 1000, plus 50m buffer)                                         |                       0 |                                               -0.21 |                                                0.55 |               0.39 |                0.55 |                                 0.42 |                                 0.15 |         0.11 |                                    0.16 |       0.17 |                                                                                       0.41 |                                                                                                0.49 |                                                                                               0.13 |                                                                                          0.15 |                                 -0.63 |                                              0.63 |                                                                                  0.08 |                                                                          0.31 |                                      -0.25 |                                                      0.9 |                                                      0.86 |                                                           1 |                                          -0.01 |
 | Total other crimes (per 1000, plus 50m buffer)                                                      |                       0 |                                               -0.04 |                                                0.01 |              -0.07 |                   0 |                                 0.02 |                                -0.03 |        -0.06 |                                   -0.01 |      -0.01 |                                                                                       0.07 |                                                                                                0.06 |                                                                                               0.06 |                                                                                         -0.04 |                                     0 |                                                 0 |                                                                                 -0.03 |                                                                         -0.03 |                                      -0.08 |                                                     0.02 |                                                      0.03 |                                                       -0.01 |                                              1 |
 
-**This section should include a screen capture of your pivot table, like so:**
 
-![](pivot-table-screen-capture.png)<br>
-*Figure 2: This pivot table shows...*
+![](pivot.png)<br>
+*Figure 2: This pivot table shows a generally increasing trend in SES Quartiles with both LIM-AT prevalence and % racialized population, suggesting that there may be a relationship between the variables.*
 
-**This section should also include a screen capture of your exploratory chart, like so:**
+![](charts1.png)<br>
+*Figure 3: This exploratory chart shows the positive correlation between the LIM-AT and primary care uncertanty, % racialized population, as well as renting and core housing need. The chart illustrates a much stronger relationship in the second compared to the first.*
 
-![](chart-screen-capture.png)<br>
-*Figure 3: This exploratory chart shows...*
+![](correl_matrix.png)<br>
+*Figure 4: Correlation Matrix - The LIM-AT was one of the most strongly correlated variables, with crime and total population on the other end of the spectrum.*
+
+Figure 4 was created by using the following function: `=ROUND(CORREL(WORK!B2:B90, WORK!$B2:$B$90), 2)`. The figure shows at a glance how any given variable correlates to any other, how strongly, and whether it's a positive or negative correlation.
 
 ## 3. Delivering Data
 
-Insert text here.
+One thing I'd like to investigate is if any of the additional variables found on the ONS-SQO may provide additional context. From the basic exploration, I think omitting the crime variables may be the way forward, as the trends suggest something simple - there are more crimes reported where there is more policing, which happens to be heavier in lower income areas - primarily in the general area of the city core from Vanier to West Centretown.
 
 ## 4. References
 
